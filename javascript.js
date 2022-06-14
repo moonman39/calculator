@@ -35,11 +35,20 @@ const operate = (operator, num1, num2) => {
 
 // Function to populate the display when number buttons are clicked
 const display = document.querySelector(".display-text");
+let displayValue;
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) =>
+const inputButtons = document.querySelectorAll(".input-box");
+inputButtons.forEach((button) =>
   button.addEventListener("click", () => {
-    display.textContent = button.textContent;
+    if (display.textContent === "0") {
+      display.textContent = button.textContent;
+      displayValue = button.textContent;
+      console.log(displayValue);
+    } else {
+      display.textContent += button.textContent;
+      displayValue = displayValue + button.textContent;
+      console.log(displayValue);
+    }
   })
 );
 

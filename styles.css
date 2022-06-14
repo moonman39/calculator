@@ -63,7 +63,8 @@ h1 {
 .input-box,
 .display,
 .clear,
-.delete {
+.delete,
+.operator {
   background-color: white;
   border-radius: 3px;
   border: 1px solid orange;
