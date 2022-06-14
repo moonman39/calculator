@@ -68,3 +68,42 @@ h1 {
   border-radius: 3px;
   border: 1px solid orange;
 }
+
+.input-box {
+  position: relative;
+}
+.text {
+  font-size: 25px;
+  position: absolute;
+  bottom: 12px;
+  left: 32px;
+}
+
+.dot {
+  left: 37px;
+  bottom: 15px;
+  font-size: 30px;
+}
+
+.clear-text {
+  position: absolute;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  top: 16px;
+  left: 53px;
+  font-size: 20px;
+}
+
+.delete-text {
+  position: absolute;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  top: 16px;
+  left: 45px;
+  font-size: 20px;
+}
+
+.clear,
+.delete {
+  position: relative;
+}

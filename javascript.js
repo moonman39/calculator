@@ -1,12 +1,3 @@
-const input = document.querySelector(".calculator");
-const inputBoxes = () => {
-  for (let i = 1; i < 17; i++) {
-    input.innerHTML += `<div class="input-box box-${i}"></div>`;
-  }
-};
-
-inputBoxes();
-
 // Functions for add, subtract, multiple, and divide
 const add = (num1, num2) => {
   return num1 + num2;
