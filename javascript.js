@@ -32,3 +32,7 @@ const operate = (operator, num1, num2) => {
       break;
   }
 };
+
+// Function to populate the display when number buttons are clicked
+const display = document.querySelector(".display-text");
+console.log(display);

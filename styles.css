@@ -69,41 +69,45 @@ h1 {
   border: 1px solid orange;
 }
 
-.input-box {
-  position: relative;
-}
-.text {
-  font-size: 25px;
-  position: absolute;
-  bottom: 12px;
-  left: 32px;
-}
-
-.dot {
-  left: 37px;
-  bottom: 15px;
-  font-size: 30px;
-}
-
-.clear-text {
-  position: absolute;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  top: 16px;
-  left: 53px;
-  font-size: 20px;
-}
-
-.delete-text {
-  position: absolute;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  top: 16px;
-  left: 45px;
-  font-size: 20px;
-}
-
 .clear,
 .delete {
-  position: relative;
+  border: 1px solid black;
+  text-transform: uppercase;
+}
+
+.clear {
+  background-color: #f28383;
+}
+
+.delete {
+  background-color: #9585db;
+}
+
+button {
+  font-size: 22px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #d4caca;
+}
+
+button:active {
+  background-color: #a8a1a1;
+}
+
+.delete:hover {
+  background-color: #8779c9;
+}
+
+.delete:active {
+  background-color: #6f63a4;
+}
+
+.clear:hover {
+  background-color: #c86a6a;
+}
+
+.clear:active {
+  background-color: #a05555;
 }
