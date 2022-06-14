@@ -35,4 +35,16 @@ const operate = (operator, num1, num2) => {
 
 // Function to populate the display when number buttons are clicked
 const display = document.querySelector(".display-text");
-console.log(display);
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) =>
+  button.addEventListener("click", () => {
+    display.textContent = button.textContent;
+  })
+);
+
+// Function to clear the display when clicked
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", () => {
+  display.textContent = 0;
+});
