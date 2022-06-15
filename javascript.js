@@ -77,10 +77,15 @@ operators.forEach((operator) => {
 // Equals event listener
 const equals = document.querySelector(".equals");
 equals.addEventListener("click", () => {
-  displayValue.push(Number(display.textContent));
-  console.log(displayValue);
-  display.textContent = operate(operation, displayValue[0], displayValue[1]);
-  displayValue = [];
+  if (displayValue.length === 0) {
+    display.textContent = display.textContent;
+    console.log(display.textContent);
+  } else {
+    displayValue.push(Number(display.textContent));
+    console.log(displayValue);
+    display.textContent = operate(operation, displayValue[0], displayValue[1]);
+    displayValue = [];
+  }
 });
 
 // Clear the display
