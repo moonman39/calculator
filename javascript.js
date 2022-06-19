@@ -66,11 +66,21 @@ function createInputs(e) {
       display.textContent = e.target.innerText;
     } else if (display.textContent.length === 9) {
       return;
+    } else if (
+      display.textContent.includes(".") &&
+      e.target.innerText === "."
+    ) {
+      return;
     } else {
       display.textContent += e.target.innerText;
     }
   } else if (operatorClicked) {
     if (display.textContent.length === 9) {
+      return;
+    } else if (
+      display.textContent.includes(".") &&
+      e.target.innerText === "."
+    ) {
       return;
     } else if (secondNumber) {
       display.textContent += e.target.innerText;
@@ -88,13 +98,15 @@ function keyboardNumber(e) {
       display.textContent = e.key;
     } else if (display.textContent.length === 9) {
       return;
+    } else if (display.textContent.includes(".") && e.key === ".") {
+      return;
     } else {
       display.textContent += e.key;
     }
   } else if (operatorClicked) {
-    if (display.textContent.length === 9) {
+    if (display.textContent.includes(".") && e.key === ".") {
       return;
-    } else if (secondNumber) {
+    } else if (secondNumber && display.textContent.length < 9) {
       display.textContent += e.key;
     } else if (display.textContent == firstNumber) {
       display.textContent = e.key;
