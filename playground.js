@@ -44,7 +44,7 @@ backspace.addEventListener("click", () => {
 // Document Keydown Event Listeners
 document.addEventListener("keydown", (e) => {
   console.log(e);
-  if (isFinite(e.key)) {
+  if (isFinite(e.key) || e.key === ".") {
     keyboardNumber(e);
   } else if (e.key === "Enter" || e.key === "=") {
     showResult();
@@ -93,7 +93,9 @@ function operate(operator, num1, num2) {
 
 // Function to display the operation
 function showResult() {
-  if (!secondNumber) {
+  if (display.textContent === "0") {
+    return;
+  } else if (!secondNumber) {
     display.textContent = firstNumber;
   } else {
     result = operate(operation, firstNumber, secondNumber);
@@ -102,6 +104,8 @@ function showResult() {
     } else {
       display.textContent = result;
     }
+    secondNumber = undefined;
+    operatorClicked = undefined;
   }
 }
 
@@ -111,13 +115,12 @@ function clearDisplay() {
   operatorClicked = false;
   firstNumber = "";
   secondNumber = "";
+  result = false;
 }
 
 // Function to backspace
 function deleteOne() {
-  if (result) {
-    return;
-  } else if (display.textContent.length === 1) {
+  if (display.textContent.length === 1) {
     display.textContent = "0";
   } else {
     display.textContent = display.textContent.slice(
@@ -130,7 +133,9 @@ function deleteOne() {
 // Function to change the display via clicking the inputs
 function createInputs(e) {
   if (!operatorClicked) {
-    if (display.textContent === "0") {
+    if (display.textContent.length === 12) {
+      return;
+    } else if (display.textContent === "0") {
       display.textContent = e.target.innerText;
     } else {
       display.textContent += e.target.innerText;
@@ -141,6 +146,25 @@ function createInputs(e) {
       display.textContent = e.target.innerText;
     } else {
       display.textContent += e.target.innerText;
+    }
+    secondNumber = Number(display.textContent);
+  }
+}
+
+// Function to input a number via a keyboard
+function keyboardNumber(e) {
+  if (!operatorClicked) {
+    if (display.textContent === "0") {
+      display.textContent = e.key;
+    } else {
+      display.textContent += e.key;
+    }
+    firstNumber = Number(display.textContent);
+  } else if (operatorClicked) {
+    if (display.textContent === "0" || display.textContent == firstNumber) {
+      display.textContent = e.key;
+    } else {
+      display.textContent += e.key;
     }
     secondNumber = Number(display.textContent);
   }
@@ -166,24 +190,5 @@ function inputKeyOperator(e) {
   } else {
     operation = e.key;
     operatorClicked = true;
-  }
-}
-
-// Function to input a number via a keyboard
-function keyboardNumber(e) {
-  if (!operatorClicked) {
-    if (display.textContent === "0") {
-      display.textContent = e.key;
-    } else {
-      display.textContent += e.key;
-    }
-    firstNumber = Number(display.textContent);
-  } else if (operatorClicked) {
-    if (display.textContent === "0" || display.textContent == firstNumber) {
-      display.textContent = e.key;
-    } else {
-      display.textContent += e.key;
-    }
-    secondNumber = Number(display.textContent);
   }
 }
