@@ -93,9 +93,7 @@ function operate(operator, num1, num2) {
 
 // Function to display the operation
 function showResult() {
-  if (display.textContent === "0") {
-    return;
-  } else if (!secondNumber) {
+  if (!secondNumber) {
     display.textContent = firstNumber;
   } else {
     result = operate(operation, firstNumber, secondNumber);
